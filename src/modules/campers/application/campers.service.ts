@@ -1,10 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { CamperDto } from './dto/camper.dto';
+import { CamperCreate, CamperDto, CamperUpdate } from './dto/camper.dto';
 import { CreateCamperCommand } from './commands/create/create-camper.command';
 import { UpdateAllergiesCommand } from './commands/update-allergies/update-allergies.command';
-import { CreateCamperRequest } from './commands/dto_/create-camper.payload';
-import { UpdateCamperAllergiesRequest } from './commands/dto_/update-camper-allergies.payload';
 import { CamperQuery } from './queries/camper.query';
 import { CampersQuery } from './queries/campers.query';
 import { DeleteCamperCommand } from './commands/delete/delete-camper.command';
@@ -26,17 +24,17 @@ export class CampersService {
     );
   }
 
-  async create(createCamperRequest: CreateCamperRequest): Promise<void> {
+  async create(createCamper: CamperCreate): Promise<void> {
     await this.commandBus.execute<CreateCamperCommand, void>(
-      new CreateCamperCommand(createCamperRequest),
+      new CreateCamperCommand(createCamper),
     );
   }
 
-  async update(camperId: string, updateCamperAllergiesRequest: UpdateCamperAllergiesRequest): Promise<void> {
+  async update(camperId: string, camperUpdate: CamperUpdate): Promise<void> {
     await this.commandBus.execute<UpdateAllergiesCommand, void>(
       new UpdateAllergiesCommand(
         camperId,
-        updateCamperAllergiesRequest.allergies,
+        camperUpdate.allergies,
       ),
     );
   }

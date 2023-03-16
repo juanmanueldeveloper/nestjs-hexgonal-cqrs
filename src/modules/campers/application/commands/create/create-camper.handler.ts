@@ -10,8 +10,8 @@ export class CreateCamperHandler
     private readonly eventPublisher: EventPublisher,
   ) {}
 
-  async execute({ createCamperRequest }: CreateCamperCommand): Promise<void> {
-    const { name, age, allergies } = createCamperRequest;
+  async execute({ createCamper }: CreateCamperCommand): Promise<void> {
+    const { name, age, allergies } = createCamper;
     const camper = this.eventPublisher.mergeObjectContext(
       await this.camperFactory.create(name, age, allergies),
     );

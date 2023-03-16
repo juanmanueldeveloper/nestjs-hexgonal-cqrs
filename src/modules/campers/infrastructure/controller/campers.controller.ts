@@ -1,7 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { CamperDto } from '../../application/dto/camper.dto';
-import { CreateCamperRequest } from '../../application/commands/dto_/create-camper.payload';
-import { UpdateCamperAllergiesRequest } from '../../application/commands/dto_/update-camper-allergies.payload';
+import { CamperCreate, CamperDto, CamperUpdate } from '../../application/dto/camper.dto';
 import { CampersService } from '../../application/campers.service';
 
 @Controller('campers')
@@ -20,17 +18,17 @@ export class CampersController {
 
   @Post()
   async createCamper(
-    @Body() createCamperRequest: CreateCamperRequest,
+    @Body() createCamper: CamperCreate,
   ): Promise<void> {
-    return this.campersService.create(createCamperRequest);
+    return this.campersService.create(createCamper);
   }
 
   @Patch(':id/allergies')
   async updateCamperAllergies(
     @Param('id') camperId: string,
-    @Body() updateCamperAllergiesRequest: UpdateCamperAllergiesRequest,
+    @Body() updateCamperAllergies: CamperUpdate,
   ): Promise<void> {
-    return this.campersService.update(camperId, updateCamperAllergiesRequest);
+    return this.campersService.update(camperId, updateCamperAllergies);
   }
 
   @Delete(':id')
