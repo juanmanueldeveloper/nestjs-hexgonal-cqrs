@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { CamperDto } from '../infrastructure/dto/camper.dto';
+import { CamperDto } from './dto/camper.dto';
 import { CreateCamperCommand } from './commands/create/create-camper.command';
 import { UpdateAllergiesCommand } from './commands/update-allergies/update-allergies.command';
-import { CreateCamperRequest } from '../infrastructure/payload/create-camper-request.dto';
-import { UpdateCamperAllergiesRequest } from '../infrastructure/payload/update-camper-allergies-request.dto';
+import { CreateCamperRequest } from './commands/dto_/create-camper.payload';
+import { UpdateCamperAllergiesRequest } from './commands/dto_/update-camper-allergies.payload';
 import { CamperQuery } from './queries/camper.query';
 import { CampersQuery } from './queries/campers.query';
 import { DeleteCamperCommand } from './commands/delete/delete-camper.command';

@@ -3,7 +3,7 @@ import { ObjectId } from 'mongodb';
 
 import { EntitySchemaFactory } from '../../../database/entity-schema.factory';
 import { Camper } from './camper';
-import { CamperSchema } from '../infrastructure/db/camper.schema';
+import { CamperSchema } from '../infrastructure/entities/camper.schema';
 
 @Injectable()
 export class CamperSchemaFactory

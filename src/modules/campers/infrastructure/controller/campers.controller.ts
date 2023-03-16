@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { CamperDto } from './dto/camper.dto';
-import { CreateCamperRequest } from './payload/create-camper-request.dto';
-import { UpdateCamperAllergiesRequest } from './payload/update-camper-allergies-request.dto';
-import { CampersService } from '../application/campers.service';
+import { CamperDto } from '../../application/dto/camper.dto';
+import { CreateCamperRequest } from '../../application/commands/dto_/create-camper.payload';
+import { UpdateCamperAllergiesRequest } from '../../application/commands/dto_/update-camper-allergies.payload';
+import { CampersService } from '../../application/campers.service';
 
 @Controller('campers')
 export class CampersController {

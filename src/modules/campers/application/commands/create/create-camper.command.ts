@@ -1,4 +1,4 @@
-import { CreateCamperRequest } from "../../../infrastructure/payload/create-camper-request.dto";
+import { CreateCamperRequest } from "../dto_/create-camper.payload";
 
 export class CreateCamperCommand {
   constructor(public readonly createCamperRequest: CreateCamperRequest) {}
