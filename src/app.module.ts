@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CampersModule } from './campers/campers.module';
+import { CampersModule } from './modules/campers/campers.module';
 import { DatabaseModule } from './database/database.module';
 
 @Module({

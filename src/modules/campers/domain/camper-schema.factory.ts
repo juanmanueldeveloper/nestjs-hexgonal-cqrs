@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 
-import { EntitySchemaFactory } from '../../database/entity-schema.factory';
-import { Camper } from '../Camper';
-import { CamperSchema } from './camper.schema';
+import { EntitySchemaFactory } from '../../../database/entity-schema.factory';
+import { Camper } from './camper';
+import { CamperSchema } from '../infrastructure/db/camper.schema';
 
 @Injectable()
 export class CamperSchemaFactory

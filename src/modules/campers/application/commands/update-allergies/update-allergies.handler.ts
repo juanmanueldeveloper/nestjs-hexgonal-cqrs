@@ -1,5 +1,5 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
-import { CamperEntityRepository } from '../../db/camper-entity.repository';
+import { CamperEntityRepository } from '../../../domain/camper-entity.repository';
 import { UpdateAllergiesCommand } from './update-allergies.command';
 
 @CommandHandler(UpdateAllergiesCommand)

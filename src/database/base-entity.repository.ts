@@ -23,4 +23,10 @@ export abstract class BaseEntityRepository<
   async findAll(): Promise<TEntity[]> {
     return this.find({});
   }
+
+  async deleteById(id: string): Promise<void> {
+    return await this.findByIdAndRemove({
+      _id: new ObjectID(id),
+    } as FilterQuery<TSchema>);
+  }
 }

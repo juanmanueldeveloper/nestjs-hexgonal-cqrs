@@ -72,4 +72,21 @@ export abstract class EntityRepository<
       throw new NotFoundException('Unable to find the entity to replace.');
     }
   }
+
+  async findByIdAndRemove(
+    entityFilterQuery: FilterQuery<TSchema>,
+  ): Promise<void> {
+    const deletedEntityDocument = await this.entityModel.findByIdAndRemove(
+      entityFilterQuery,
+      {
+        new: true,
+        useFindAndModify: false,
+        lean: true,
+      },
+    );
+
+    if (!deletedEntityDocument) {
+      throw new NotFoundException('Unable to find the entity to delete.');
+    }
+  }
 }

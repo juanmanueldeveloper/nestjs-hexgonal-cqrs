@@ -1,3 +1,3 @@
-export class CamperCreatedEvent {
+export class CamperQuery {
   constructor(public readonly camperId: string) {}
 }

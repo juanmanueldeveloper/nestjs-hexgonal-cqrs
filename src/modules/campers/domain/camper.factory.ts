@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 
-import { EntityFactory } from '../database/entity.factory';
-import { Camper } from './Camper';
-import { CamperEntityRepository } from './db/camper-entity.repository';
+import { EntityFactory } from '../../../database/entity.factory';
+import { Camper } from './camper';
+import { CamperEntityRepository } from './camper-entity.repository';
 import { CamperCreatedEvent } from './events/camper-created.event';
 
 @Injectable()
@@ -26,5 +26,11 @@ export class CamperFactory implements EntityFactory<Camper> {
     await this.camperEntityRepository.create(camper);
     camper.apply(new CamperCreatedEvent(camper.getId()));
     return camper;
+  }
+
+  async findByIdAndRemove(camperId: string): Promise<void> {
+    await this.camperEntityRepository.findByIdAndRemove({
+      _id: camperId,
+    });
   }
 }
