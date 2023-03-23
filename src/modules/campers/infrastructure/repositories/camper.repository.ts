@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CamperDto } from '../../application/dto/camper.dto';
+import { CamperDto } from '../../app/dto/camper.dto';
 import { CamperSchema } from '../entities/camper.schema';
 
 @Injectable()

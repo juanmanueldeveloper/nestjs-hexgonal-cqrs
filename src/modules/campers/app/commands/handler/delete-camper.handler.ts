@@ -1,6 +1,6 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { CamperEntityRepository } from '../../../domain/camper-entity.repository';
-import { DeleteCamperCommand } from './delete-camper.command';
+import { DeleteCamperCommand } from '../impl/delete-camper.command';
 
 @CommandHandler(DeleteCamperCommand)
 export class DeleteCamperHandler

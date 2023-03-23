@@ -1,7 +1,7 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { CamperDto } from '../dto/camper.dto';
-import { CamperDtoRepository } from '../../infrastructure/repositories/camper.repository';
-import { CamperQuery } from './camper.query';
+import { CamperDto } from '../../dto/camper.dto';
+import { CamperDtoRepository } from '../../../infrastructure/repositories/camper.repository';
+import { CamperQuery } from '../impl/camper.query';
 
 @QueryHandler(CamperQuery)
 export class CamperHandler implements IQueryHandler<CamperQuery> {

@@ -3,14 +3,14 @@ import { CqrsModule } from '@nestjs/cqrs';
 import { MongooseModule, SchemaFactory } from '@nestjs/mongoose';
 import { CamperFactory } from './domain/camper.factory';
 import { CampersController } from './infrastructure/controller/campers.controller';
-import { CamperCommandHandlers } from './application/commands';
+import { CamperCommandHandlers } from './app/commands';
 import { CamperDtoRepository } from './infrastructure/repositories/camper.repository';
 import { CamperEntityRepository } from './domain/camper-entity.repository';
 import { CamperSchemaFactory } from './domain/camper-schema.factory';
 import { CamperSchema } from './infrastructure/entities/camper.schema';
-import { CamperEventHandlers } from './application/events';
-import { CamperQueryHandlers } from './application/queries';
-import { CampersService } from './application/campers.service';
+import { CamperEventHandlers } from './app/events';
+import { CamperQueryHandlers } from './app/queries';
+import { CampersService } from './app/campers.service';
 
 @Module({
   imports: [

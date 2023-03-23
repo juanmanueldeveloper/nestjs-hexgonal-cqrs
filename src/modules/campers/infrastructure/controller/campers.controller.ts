@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { CamperCreate, CamperDto, CamperUpdate } from '../../application/dto/camper.dto';
-import { CampersService } from '../../application/campers.service';
+import { CamperCreate, CamperDto, CamperUpdate } from '../../app/dto/camper.dto';
+import { CampersService } from '../../app/campers.service';
 
 @Controller('campers')
 export class CampersController {
