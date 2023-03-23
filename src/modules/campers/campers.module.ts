@@ -1,19 +1,20 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { MongooseModule, SchemaFactory } from '@nestjs/mongoose';
-import { CamperFactory } from './domain/camper.factory';
+import { CamperFactory } from './application/camper.factory';
 import { CampersController } from './infrastructure/controller/campers.controller';
-import { CamperCommandHandlers } from './app/commands';
-import { CamperDtoRepository } from './infrastructure/repositories/camper.repository';
-import { CamperEntityRepository } from './domain/camper-entity.repository';
-import { CamperSchemaFactory } from './domain/camper-schema.factory';
-import { CamperSchema } from './infrastructure/entities/camper.schema';
-import { CamperEventHandlers } from './app/events';
-import { CamperQueryHandlers } from './app/queries';
-import { CampersService } from './app/campers.service';
+import { CamperCommandHandlers } from './application/commands';
+import { CamperDtoRepository } from './infrastructure/adapters/repositories/camper.repository';
+import { CamperEntityRepository } from './application/camper-entity.repository';
+import { CamperSchema } from './infrastructure/adapters/entities/camper.schema';
+import { CamperEventHandlers } from './application/events';
+import { CamperQueryHandlers } from './application/queries';
+import { CampersService } from './application/services/campers.service';
+import { CamperSchemaFactory } from './application/camper-schema.factory';
 
 @Module({
   imports: [
+    
     CqrsModule,
     MongooseModule.forFeature([
       {
@@ -32,6 +33,7 @@ import { CampersService } from './app/campers.service';
     ...CamperEventHandlers,
     ...CamperQueryHandlers,
     CampersService,
+    Logger
   ],
 })
 export class CampersModule {}

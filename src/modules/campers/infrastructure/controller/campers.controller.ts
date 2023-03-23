@@ -1,19 +1,19 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { CamperCreate, CamperDto, CamperUpdate } from '../../app/dto/camper.dto';
-import { CampersService } from '../../app/campers.service';
+import { CampersService } from '../../application/services/campers.service';
+import { Camper, CamperCreate, CamperUpdate } from '../../domain/entities/camper.entity';
 
 @Controller('campers')
 export class CampersController {
   constructor(private readonly campersService: CampersService) {}
 
   @Get(':id')
-  async getCamper(@Param('id') camperId: string): Promise<CamperDto> {
-    return this.campersService.findById(camperId);
+  async getById(@Param('id') camperId: string): Promise<Camper> {
+    return this.campersService.getById(camperId);
   }
 
   @Get()
-  async getCampers(): Promise<CamperDto[]> {
-    return this.campersService.find();
+  async getAll(): Promise<Camper[]> {
+    return this.campersService.getAll();
   }
 
   @Post()
